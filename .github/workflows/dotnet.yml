@@ -1,3 +1,7 @@
+# Run in Admin PowerShell
+Get-Process devenv, msbuild, dotnet, VBCSCompiler, IISExpress -ErrorAction SilentlyContinue |
+  ForEach-Object { Stop-Process -Id $_.Id -Force -ErrorAction SilentlyContinue }
+
 # ensure VS closed, then
 rd /s /q .vs
 # then
